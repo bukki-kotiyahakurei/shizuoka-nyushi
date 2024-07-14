@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静岡県公立高校入試-偏差値計算ツール</title>
+    <style>
+        body {
+            font-family: Noto Sans JP, sans-serif;
+            margin: 1;
+            padding: 1;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            font-weight: 700;
+            text-align: center;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-color: #000000 1px solid;
+            font-weight: 500;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            border: #000000 2% solid;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #010862;
+            font-family: Noto Sans JP, sans-serif;
+            font-weight: 600;
+            font-size: 10px;
+            color: #fff;
+            border: none;
+            height: 56px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            outline-color: #000000 1px solid;
+            border-radius: 8px;
+            border: #010862 3px solid;
+        }
+
+        button:hover {
+            border: #ebb700 3px solid;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        .results p {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .results h3 {
+            background: #e3c20a;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            font-family: Noto Sans JP, sans-serif;
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.1%;
+            background: #333;
+            color: #fff;
+        }
+
+        a {
+            color: #109bf1;
+        }
+
+        .deviation-value {
+            color: #000000;
+            font-weight: bold;
+            font-size: 45px;
+            font-family: "Murecho", sans-serif;
+            font-weight: 500;
+            font-style: bold;
+            margin-left: 20px; /* 教科名と偏差値の間の余白を設定 */
+            text-align: left; /* 偏差値のテキストを左寄せ */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>静岡県公立高校入試　偏差値計算ツール</h1>
+    </header>
+    <h2>
+        これはβ版です。不具合が生じる可能性があります
+    </h2>
+    <h3>
+        個人開発のツールです。静岡県教育委員会とは関係ない非公式のサイトです。
+    </h3>
+    <h3>
+        値は参考程度にお願いします。
+    </h3>
+    <div class="container">
+        <section>
+            <h2>
+                令和６年度（2024年）
+            </h2>
+            <form id="score-form">
+                <div class="input-group">
+                    <label for="kokugo">国語</label>
+                    <input type="number" id="kokugo" name="kokugo" min="0" max="50">
+                </div>
+                <div class="input-group">
+                    <label for="sugaku">数学</label>
+                    <input type="number" id="sugaku" name="sugaku" min="0" max="50">
+                </div>
+                <div class="input-group">
+                    <label for="eigo">英語</label>
+                    <input type="number" id="eigo" name="eigo" min="0" max="50">
+                </div>
+                <div class="input-group">
+                    <label for="shakai">社会</label>
+                    <input type="number" id="shakai" name="shakai" min="0" max="50">
+                </div>
+                <div class="input-group">
+                    <label for="rika">理科</label>
+                    <input type="number" id="rika" name="rika" min="0" max="50">
+                </div>
+                <button type="button" onclick="calculate()">計算する！</button>
+            </form>
+        </section>
+        <section class="results" id="results">
+        </section>
+    </div>
+    <footer>
+        <p>連絡はこちらのフォームから <a href="https://forms.gle/QaA367BV1xNF5pSU7">https://forms.gle/QaA367BV1xNF5pSU7</a></p>
+    </footer>
+    <script>
+        function calculate() {
+            const kokugo = parseFloat(document.getElementById('kokugo').value) || 0;
+            const sugaku = parseFloat(document.getElementById('sugaku').value) || 0;
+            const eigo = parseFloat(document.getElementById('eigo').value) || 0;
+            const shakai = parseFloat(document.getElementById('shakai').value) || 0;
+            const rika = parseFloat(document.getElementById('rika').value) || 0;
+
+            const deviationValues = {
+                kokugo: { mean: 33.81, sd: 7.26 },
+                sugaku: { mean: 24.16, sd: 8.88 },
+                eigo: { mean: 30.26, sd: 10.96 },
+                shakai: { mean: 27.16, sd: 9.91 },
+                rika: { mean: 25.64, sd: 10.88 }
+            };
+
+            function calculateDeviation(score, mean, sd) {
+                return ((score - mean) / sd) * 10 + 50;
+            }
+
+            function roundToOneDecimal(value) {
+                return Math.floor(value * 100) / 100;
+            }
+
+            const kokugoDeviation = roundToOneDecimal(calculateDeviation(kokugo, deviationValues.kokugo.mean, deviationValues.kokugo.sd));
+            const sugakuDeviation = roundToOneDecimal(calculateDeviation(sugaku, deviationValues.sugaku.mean, deviationValues.sugaku.sd));
+            const eigoDeviation = roundToOneDecimal(calculateDeviation(eigo, deviationValues.eigo.mean, deviationValues.eigo.sd));
+            const shakaiDeviation = roundToOneDecimal(calculateDeviation(shakai, deviationValues.shakai.mean, deviationValues.shakai.sd));
+            const rikaDeviation = roundToOneDecimal(calculateDeviation(rika, deviationValues.rika.mean, deviationValues.rika.sd));
+
+            const averageDeviation = roundToOneDecimal((kokugoDeviation + sugakuDeviation + eigoDeviation + shakaiDeviation + rikaDeviation) / 5);
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `
+                <p class="deviation">国語 <span class="deviation-value">${kokugoDeviation.toFixed(1)}</span></p>
+                <p class="deviation">数学 <span class="deviation-value">${sugakuDeviation.toFixed(1)}</span></p>
+                <p class="deviation">英語 <span class="deviation-value">${eigoDeviation.toFixed(1)}</span></p>
+                <p class="deviation">社会 <span class="deviation-value">${shakaiDeviation.toFixed(1)}</span></p>
+                <p class="deviation">理科 <span class="deviation-value">${rikaDeviation.toFixed(1)}</span></p>
+                <h3>5教科偏差値平均（合計） <span class="deviation-value">${averageDeviation.toFixed(1)}</span></h3>
+            `;
+        }
+    </script>
+</body>
+</html>
