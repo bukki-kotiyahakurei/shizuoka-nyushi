@@ -13,36 +13,44 @@
     <style>
         body {
             font-family: Noto Sans JP, sans-serif;
-            margin: 1;
-            padding: 1;
-            background-color: #f4f4f4;
+            margin: 0 auto;
+            padding: 0 auto;
+            background-color: #ffffff;
+            font-size: 18px;
+            text-align: 160px;
         }
 
         h2 {
             font-weight: 700;
-            text-align: center;
+            font-size: 28px;
+            margin-top: 70px;
+            margin-bottom: 16px;
+            text-align: 160%;
         }
 
         header {
-            background: #333;
-            color: #fff;
-            padding: 5px 0;
+            background: #000060;
+            color: #ffffff;
+            padding-top: 0.01%;
+            padding-bottom: 0.01%;
             text-align: center;
+            font-weight: 700;
+            font-size: 22px;
         }
 
         .container {
             padding: 20px;
-            max-width: 600px;
-            margin: auto;
+            max-width: calc(100% - 10%);
+            margin: 0px;
             background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .input-group {
-            margin-bottom: 15px;
+            margin-bottom: 17px;
             border-radius: 5px;
             border-color: #000000 1px solid;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 20px;
         }
 
         label {
@@ -52,30 +60,45 @@
 
         input[type="number"] {
             width: calc(100% - 20px);
-            padding: 8px 10px;
+            padding: 10px 10px;
             margin-bottom: 10px;
-            border: #000000 2% solid;
-            border-radius: 5px;
+            border: #000000 2.1px solid;
+            font-family: Noto Sans JP , sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            border-radius: 10px;
+            outline: 2px white solid;
+        }
+        input[type="number"] :hover{
+            width: calc(100% - 20px);
+            padding: 10px 10px;
+            margin-bottom: 10px;
+            border: #FFC700 2.1px solid;
+            font-family: Noto Sans JP , sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            border-radius: 10px;
+            outline: 2px black solid;
         }
 
         button {
             background: #010862;
             font-family: Noto Sans JP, sans-serif;
-            font-weight: 600;
-            font-size: 10px;
+            font-weight: 700;
+            font-size: 20px;
             color: #fff;
             border: none;
             height: 56px;
             width: 100%;
             cursor: pointer;
             font-size: 16px;
-            outline-color: #000000 1px solid;
+            outline-color: #000000 2px solid;
             border-radius: 8px;
-            border: #010862 3px solid;
+            border: #010862 3.5px solid;
         }
 
         button:hover {
-            border: #ebb700 3px solid;
+            border: #ebb700 3.5px solid;
         }
 
         .results {
@@ -83,7 +106,7 @@
         }
 
         .results p {
-            background: #f9f9f9;
+            background: #f0f0f0;
             padding: 10px;
             margin: 5px 0;
             display: flex;
@@ -99,15 +122,18 @@
             font-family: Noto Sans JP, sans-serif;
         }
 
-        footer {
-            text-align: center;
-            padding: 0.1%;
-            background: #333;
-            color: #fff;
+        a {
+            color: #3460FB;
         }
 
-        a {
-            color: #109bf1;
+        a:hover {
+            background-color: #FFC700;
+            outline: 3px #000000 solid;
+            border-radius: 5px;
+        }
+
+        a:visited{
+            color: #8B008B;
         }
 
         .deviation-value {
@@ -120,28 +146,162 @@
             margin-left: 20px; /* 教科名と偏差値の間の余白を設定 */
             text-align: left; /* 偏差値のテキストを左寄せ */
         }
+
+        .daimei{
+            font-family:  Noto Sans JP, sans-serif;
+            font-size: 45px;
+            font-weight: 700;
+        }
+
+        .keikoku {
+            padding: 10px;
+            border: solid #767676 3px;
+            font-weight: 400;
+            border-radius: 12px;
+            margin: 10px;
+            font-size: 20px;
+            line-height: 160%;
+        }
+
+        .h4 {
+            font-size: 18px;
+            font-weight: 400;
+            font-size: 18px;
+            text-align: 160%;
+        }
+
+    .wrapper {
+        width: 1000px;
+        max-width:100%;
+        margin: 0 auto;
+    }
+
+    .説明文{
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 150%;
+        margin-left: 23px;
+        margin-right: 23px;
+        text-align: 150%;
+    }
+
+    .偏差値参考{
+        padding: 10px;
+            border: solid #B78F00 3px;
+            font-weight: 500;
+            border-radius: 12px;
+            margin: 10px;
+            font-size: 20px;
+            line-height: 150%;
+            margin-bottom: 25px;
+    }
+
+    .サブ説明文{
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 150%;
+        color: #CE0000;
+    }
+
+    .select{
+        font-family: Noto Sans JP, sans-serif;
+        font-size: 20px;
+        border: #000000 2px solid;
+        border-radius: 10px;
+        font-weight: 400;
+        background-color: white;
+        padding: 10px; 
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+
+    .select:hover{
+        border: 2px #FFC700 solid;
+        outline: #000000 3px solid;
+    }
+
+    h3{
+        font-size: 26px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .h2plus{
+            font-weight: 700;
+            font-size: 28px;
+            margin-bottom: 16px;
+            text-align: 160%;
+    }
+
+    footer{
+            background: #000060;
+            color: #ffffff;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 22px;
+            overflow-x: hidden;
+    }
     </style>
 </head>
 <body>
     <script src="//accaii.com/yodayo/script.js" async></script><noscript><img src="//accaii.com/yodayo/script?guid=on"></noscript>
     <header>
-        <h1>静岡県公立高校入試　偏差値計算ツール</h1>
+        <h1>静岡県高校入試
+        <br>偏差値ツール</h1>
     </header>
-    <h2>
-        これはβ版です。不具合が生じる可能性があります
-    </h2>
-    <h3>
-        個人開発のツールです。静岡県教育委員会とは関係ない非公式のサイトです。
-    </h3>
-    <h3>
-        値は参考程度にお願いします。
-    </h3>
+    <div class="keikoku">
+        <daimei>
+            個人開発のツールです。<br>静岡県教育委員会とは関係ない非公式のツールです。
+        </daimei>
+    </div>
+
+    <div class="説明文">
+        静岡県公立高校入試の点数から、偏差値を計算できます。<br>
+        過去問演習や本番点の一つの目安としてお使いください。<br>
+        ※理数科等の傾斜配点は未対応です。
+    </div>
+
+    <div class="偏差値参考">
+        偏差値は参考程度にしてください。
+    </div>
+
+    <hr noshade="">
+
     <!--タグはここから-->
 
     <div class="container">
         <section>
+            <div class="h2plus">
+                年度を選択
+            </div>
+
+            <div class="サブ説明文">
+                現在開発中につき、令和6年(2024年)のみ利用可能です。
+                </div>
+
+            <select name="nendo" class="select">
+                <option value="R6" selected >令和６年度（2024年）　　　
+                <option value="R5" disabled>令和５年度（2023年）　　　
+                <option value="R4" disabled >令和４年度（2022年）　　　
+                <option value="R3" disabled >令和３年度（2021年）　　　
+                <option value="R2" disabled >令和２年度（2020年）　　　
+                <option value="H31" disabled >平成３１年度（2019年）　　　
+                <option value="H30" disabled >平成３０年度（2018年）　　　
+                <option value="H29" disabled >平成２９年度（2017年）　　　
+                <option value="H28" disabled >平成２８年度（2016年）　　　
+                <option value="H27" disabled >平成２７年度（2015年）　　　
+                <option value="H26" disabled >平成２６年度（2014年）　　　
+                <option value="H25" disabled >平成２５年度（2013年）　　　
+                <option value="H24" disabled >平成２４年度（2012年）　　　
+                <option value="H23" disabled >平成２３年度（2011年）　　　
+                <option value="H22" disabled >平成２２年度（2010年）　　　
+                <option value="H21" disabled >平成２１年度（2009年）　　　
+            </select>
+
             <h2>
-                令和６年度（2024年）
+                各教科の得点を入力
             </h2>
             <form id="score-form">
                 <div class="input-group">
@@ -169,12 +329,9 @@
         </section>
         <section class="results" id="results">
         </section>
-    </div>
 
-    <footer>
-        <p>連絡はこちらのフォームから <a href="https://forms.gle/QaA367BV1xNF5pSU7">https://forms.gle/QaA367BV1xNF5pSU7</a></p>
-        <p>静岡県教育委員会とは無関係です ver0.1β</p>
-    </footer>
+    </div>
+    <!--ここに計算値易化-->
     <script>
         function calculate() {
             const kokugo = parseFloat(document.getElementById('kokugo').value) || 0;
@@ -218,5 +375,33 @@
             `;
         }
     </script>
+            <hr noshade>
+            <div class="keikoku">
+                <h3>5教科合計の偏差値について</h3>
+                実際とは異なる値です。<br>これは、当ツールが各教科の偏差値を平均し、小数第2位を四捨五入して表示しているためです。（全教科合計の標準偏差は未公表）
+            </div>
+
+        <div class="説明文">
+            <h2>
+                フィードバック
+            </h2>
+            フィードバックは <a href="https://forms.gle/QRxN3UL7raKsQY3n8">連絡用フォーム</a> に送信してください。<br>（送信時の注意事項も添付されています。）
+
+            <h2>設計・デザイン</h2>
+            デジタル庁デザインシステムウェブサイト <a href="https://design.digital.go.jp">https://design.digital.go.jp/</a> のコンテンツを加工して作成
+            
+            <h2>過去の平均点と標準偏差</h2>
+            このサイトで使用した過去の平均点と標準偏差を、用意ができ次第記載します。
+            <br>●予告なく終了や中止をする場合があります。
+            <br>●データの利用は自己責任となります。ご注意ください。
+            
+            <h2></h2>
+
+        </biv>
+
+        <footer>
+            令和６年度（2024年）対応版
+            <br>静岡県公立高校入試-偏差値計算ツール
+        </footer>
 </body>
 </html>
