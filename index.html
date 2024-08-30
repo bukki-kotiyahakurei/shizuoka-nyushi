@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!--font-->
     <meta name="google-site-verification" content="rdCzbje2ihk9EylRAusMSqV_6NQK4w4hlsnuvwXte3o" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&display=swap" rel="stylesheet">
+    <!--search meta date-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>静岡県公立高校入試-偏差値計算ツール</title>
     <meta name="google-site-verification" content="rdCzbje2ihk9EylRAusMSqV_6NQK4w4hlsnuvwXte3o" />
-    <!--ここにメタデータが記述されています-->
     <meta name="description" content="静岡県高校入試の点数から偏差値を求めます。本番点の振り返りや、過去問・県学調、自己採点に最適です！令和6年度対応。完全無料・登録不要。">
     <meta name="keywords" content="静岡県,公立入試,高校入試,静岡県高校入試,偏差値,偏差値計算,ツール,県学調,過去問">
     <meta name="creation_date" content="2024-7-19">
@@ -19,6 +20,7 @@
 
     
     <style>
+
         body {
             font-family: Noto Sans JP, sans-serif;
             margin: 0 auto;
@@ -26,6 +28,9 @@
             background-color: #ffffff;
             font-size: 18px;
             text-align: 160px;
+            line-break: strict;
+            max-width: 100%;
+            width: 100%;
         }
 
         h2 {
@@ -182,6 +187,7 @@
         width: 1000px;
         max-width:100%;
         margin: 0 auto;
+        width: 100%;
     }
 
     .説明文{
@@ -241,16 +247,21 @@
             text-align: 160%;
     }
 
-    footer{
-            background: #000060;
-            color: #ffffff;
-            padding-top: 8px;
-            padding-bottom: 8px;
+    footer {
+            color: #000000;
+            padding: 8px 0; /* 上下のpaddingを8pxに設定 */
+            margin: 0; /* 余白をリセット */
             text-align: center;
-            font-weight: 500;
-            font-size: 22px;
-            overflow-x: hidden;
-    }
+            font-weight: 400;
+            font-size: 15px;
+            line-height: normal;
+            background-color: #efefef;
+            border-top: #6e6e6e 3px solid;
+            width: 100%;
+            box-sizing: border-box; /* paddingを含むようにbox-sizingを設定 */
+            position: relative;
+}
+
     </style>
 </head>
 <body>
@@ -259,6 +270,7 @@
         <h1>静岡県高校入試
         <br>偏差値ツール</h1>
     </header>
+
     <div class="keikoku">
         <daimei>
             個人開発のツールです。<br>静岡県教育委員会とは関係ない非公式のツールです。
@@ -277,7 +289,7 @@
 
     <hr noshade="">
 
-    <!--タグはここから-->
+    <!--Calc System-->
 
     <div class="container">
         <section>
@@ -288,7 +300,7 @@
             <div class="サブ説明文">
                 現在開発中につき、令和6年(2024年)のみ利用可能です。
                 </div>
-
+                <!--年度データ-->
             <select name="nendo" class="select">
                 <option value="R6" selected >令和６年度（2024年）　　　
                 <option value="R5" disabled>令和５年度（2023年）　　　
@@ -339,7 +351,7 @@
         </section>
 
     </div>
-    <!--ここに計算値易化-->
+    <!--Javascript calc unit-->
     <script>
         function calculate() {
             const kokugo = parseFloat(document.getElementById('kokugo').value) || 0;
@@ -383,6 +395,8 @@
             `;
         }
     </script>
+
+    <!--後半部-->
             <hr noshade>
             <div class="keikoku">
                 <h3>5教科参考偏差値について</h3>
@@ -402,15 +416,22 @@
             このサイトで使用した過去の平均点と標準偏差を、用意ができ次第記載します。
             <br>●予告なく終了や中止する場合があります。
             <br>●データ利用は自己責任となります。ご注意ください。
-            <br>※PDFと別ページでの掲載を予定
-            
-            <h2></h2>
+            <br>●標準偏差の記載は令和３年度までです。
+            <br>※PDF+別ページでの掲載を予定中
 
-        </biv>
+            <h2>
+                
+            </h2>
+            </div>
 
+
+        <!--footer-->
         <footer>
-            令和６年度（2024年）対応版
-            <br>静岡県公立高校入試-偏差値計算ツール
-        </footer>
+            静岡県公立高校入試-偏差値計算ツール
+            <br>このサイトにより生じた障害について当サイトは一切の責任を負いません
+            <p xmlns:cc="http://creativecommons.org/ns#" >This work is marked with <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt=""></a></p>
+            <br>ホロライブ２期生の湊あくあさんが令和６年８月２８日をもって”卒業”されました。今後のご健勝とご多幸を心よりお祈り申し上げます。
+                    </footer>
+
 </body>
 </html>
