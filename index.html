@@ -1,597 +1,195 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!--font-->
+    <!--search meta date-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>偏差値計算ツール・高校入試（静岡県）</title>
+
+    <meta name="google-site-verification" content="rdCzbje2ihk9EylRAusMSqV_6NQK4w4hlsnuvwXte3o" />
+    <meta name="description" content="静岡県高校入試の点数から偏差値を求めます。本番点の振り返りや、過去問・県学調、自己採点に最適です！令和6年度対応。完全無料・登録不要。">
+    <meta name="theme-color" content="#000060">    
+
+    <!--フォント-->
     <meta name="google-site-verification" content="rdCzbje2ihk9EylRAusMSqV_6NQK4w4hlsnuvwXte3o" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&display=swap" rel="stylesheet">
-    <!--search meta date-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>静岡県公立高校入試-偏差値計算ツール</title>
-    <meta name="google-site-verification" content="rdCzbje2ihk9EylRAusMSqV_6NQK4w4hlsnuvwXte3o" />
-    <meta name="description" content="静岡県高校入試の点数から偏差値を求めます。本番点の振り返りや、過去問・県学調、自己採点に最適です！令和6年度対応。完全無料・登録不要。">
-    <meta name="keywords" content="静岡県,公立入試,高校入試,静岡県高校入試,偏差値,偏差値計算,ツール,県学調,過去問">
-    <meta name="creation_date" content="2024-7-19">
-    <meta name="theme-color" content="#000060">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>静岡県公立高校入試-偏差値計算ツール</title>
-    <meta name="google-site-verification" content="rdCzbje2ihk9EylRAusMSqV_6NQK4w4hlsnuvwXte3o">
-    <meta name="description" content="静岡県高校入試の点数から偏差値を求めます。本番点の振り返りや、過去問・県学調、自己採点に最適です！令和6年度対応。完全無料・登録不要。">
-    <meta name="keywords" content="静岡県,公立入試,高校入試,静岡県高校入試,偏差値,偏差値計算,ツール,県学調,過去問">
-    <meta name="creation_date" content="2024-7-19">
-    <meta name="theme-color" content="#000060">
 
+    <!--CSS，Javascript読み込み-->
+    <link rel="stylesheet" href="index style.css" type="text/css">
+    <link rel="stylesheet" href="index script.js" type="text/js">
+    <script src="index script.js"></script>
 
-    
-    <style>
+    <!--アイコン by Google Material Icon-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 
-        body {
-            font-family: Noto Sans JP, sans-serif;
-            margin: 0 auto;
-            padding: 0 auto;
-            background-color: #ffffff;
-            font-size: 20px;
-            text-align: 160px;
-            line-break: strict;
-            max-width: 100%;
-            width: 100%;
-            line-height: 170%;
-            letter-spacing: 0.5px;
-        }
-
-        h2 {
-            font-weight: 700;
-            font-size: 28px;
-            margin-top: 70px;
-            margin-bottom: 16px;
-            text-align: 160%;
-        }
-
-        header {
-            background: #000060;
-            color: #ffffff;
-            padding-top: 0.02px;
-            padding-bottom: 0.02px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 230%;
-        }
-
-        .container {
-            padding: 20px;
-            max-width: calc(100% - 10%);
-            margin: 0px;
-            background: #fff;
-        }
-
-        .input-group {
-            margin-bottom: 17px;
-            border-radius: 5px;
-            border-color: #000000 1px solid;
-            font-weight: 400;
-            font-size: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="number"] {
-            width: calc(100% - 20px);
-            padding: 10px 10px;
-            margin-bottom: 10px;
-            border: #000000 2.1px solid;
-            font-family: Noto Sans JP , sans-serif;
-            font-size: 20px;
-            font-weight: 400;
-            border-radius: 10px;
-            outline: 2px white solid;
-        }
-        input[type="number"] :hover{
-            width: calc(100% - 20px);
-            padding: 10px 10px;
-            margin-bottom: 10px;
-            border: #FFC700 2.1px solid;
-            font-family: Noto Sans JP , sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-            border-radius: 10px;
-            outline: 2px black solid;
-        }
-
-        button {
-            background: #010862;
-            font-family: Noto Sans JP, sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: #fff;
-            border: none;
-            height: 56px;
-            width: 100%;
-            cursor: pointer;
-            font-size: 16px;
-            outline-color: #000000 2px solid;
-            border-radius: 8px;
-            border: #010862 3.5px solid;
-        }
-
-        button:hover {
-            border: #ebb700 3.5px solid;
-        }
-
-        .results {
-            margin-top: 20px;
-        }
-
-        .results p {
-            background: #f0f0f0;
-            padding: 10px;
-            margin: 5px 0;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        .results h3 {
-            background: #e3c20a;
-            padding: 10px;
-            margin: 10px 0;
-            text-align: center;
-            font-family: Noto Sans JP, sans-serif;
-        }
-
-        a {
-            color: #3460FB;
-        }
-
-        a:hover {
-            background-color: #FFC700;
-            outline: 3px #000000 solid;
-            border-radius: 5px;
-        }
-
-        a:visited{
-            color: #8B008B;
-        }
-
-        .deviation-value {
-            color: #000000;
-            font-weight: bold;
-            font-size: 45px;
-            font-family: "Murecho", sans-serif;
-            font-weight: 500;
-            font-style: bold;
-            margin-left: 20px; /* 教科名と偏差値の間の余白を設定 */
-            text-align: left;
-            line-height: 120%; /* 偏差値のテキストを左寄せ */
-        }
-
-        .daimei{
-            font-family:  Noto Sans JP, sans-serif;
-            font-size: 45px;
-            font-weight: 700;
-        }
-
-        .keikoku {
-            padding: 10px;
-            border: solid #767676 3.5px;
-            font-weight: 400;
-            border-radius: 12px;
-            margin: 10px;
-            font-size: 20px;
-            line-height: 160%;
-        }
-
-        .h4 {
-            font-size: 18px;
-            font-weight: 400;
-            font-size: 18px;
-            text-align: 160%;
-        }
-
-    .wrapper {
-        width: 1000px;
-        max-width:100%;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .説明文{
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 150%;
-        margin-left: 23px;
-        margin-right: 23px;
-        text-align: 150%;
-    }
-
-    .偏差値参考{
-        padding: 10px;
-            border: solid #B78F00 3.5px;
-            font-weight: 500;
-            border-radius: 12px;
-            margin: 10px;
-            font-size: 20px;
-            line-height: 150%;
-            margin-bottom: 25px;
-    }
-
-    .サブ説明文{
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 150%;
-        color: #CE0000;
-    }
-
-    .select{
-        font-family: Noto Sans JP, sans-serif;
-        font-size: 20px;
-        border: #000000 2px solid;
-        border-radius: 10px;
-        font-weight: 400;
-        background-color: white;
-        padding: 10px; 
-        margin-bottom: 30px;
-        margin-top: 10px;
-    }
-
-    .select:hover{
-        border: 2px #FFC700 solid;
-        outline: #000000 3px solid;
-    }
-
-    h3{
-        font-size: 26px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .h2plus{
-            font-weight: 700;
-            font-size: 28px;
-            margin-bottom: 16px;
-            text-align: 160%;
-    }
-
-    footer {
-            color: #000000;
-            padding: 8px 0; /* 上下のpaddingを8pxに設定 */
-            margin: 0; /* 余白をリセット */
-            text-align: center;
-            font-weight: 400;
-            font-size: 15px;
-            line-height: normal;
-            background-color: #efefef;
-            border-top: #6e6e6e 3px solid;
-            width: 100%;
-            box-sizing: border-box; /* paddingを含むようにbox-sizingを設定 */
-            position: relative;
-}
-
-    </style>
+    <!--ここに上に戻るボタン-->
+    <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
 </head>
+
+<!--前半-->
+
 <body>
-    <script src="./index（2024-10-18）_files/script.js.ダウンロード" async=""></script><noscript><img src="//accaii.com/yodayo/script?guid=on"></noscript>
     <header>
         <h1>静岡県高校入試
         <br>偏差値ツール</h1>
     </header>
 
-    <div class="keikoku">
-        <daimei>
-            個人開発のツールです。<br>県教育委員会等とは関係ない非公式のツールです。
-        </daimei>
-    </div>
+    <div class="passage">
+        <div class="説明文">
+            静岡県公立高校入試の点数から、偏差値を計算できます。<br>
+            過去問演習や本番点の一つの目安としてお使いください。<br>
+            ※理数科等の傾斜配点は対応しません。
+        </div>
 
-    <div class="説明文">
-        静岡県公立高校入試の点数から、偏差値を計算できます。<br>
-        過去問演習や本番点の一つの目安としてお使いください。<br>
-        ※理数科等の傾斜配点は未対応です。
-    </div>
+        <div class="偏差値参考">
+            偏差値は参考程度にしてください。
+        </div>
 
-    <div class="偏差値参考">
-        偏差値は参考程度にしてください。
-    </div>
+        <hr noshade="">
 
-    <hr noshade="">
+        <!--Calc System-->
 
-    <!--Calc System-->
+        <div class="container">
+            <section>
+                <div class="h2plus">
+                    年度を選択
+                </div>
+                令和6年度（2024年）～平成21年度（2009年）の中から選択できます。
+                <br>
 
-    <div class="container">
-        <section>
-            <div class="h2plus">
-                年度を選択
-            </div>
-
-                <!--年度データ-->
-            <select name="nendo" class="select" id="year" onchange="updateYearData()">
-                <option value="R6" selected="">令和６年度（2024年）　　　
-                </option><option value="R5" >令和５年度（2023年）　　　
-                </option><option value="R4" >令和４年度（2022年）　　　
-                </option><option value="R3" >令和３年度（2021年）　　　
-                </option><option value="R2" >令和２年度（2020年）　　　
-                </option><option value="H31" >平成３１年度（2019年）　　　
-                </option><option value="H30" >平成３０年度（2018年）　　　
-                </option><option value="H29" >平成２９年度（2017年）　　　
-                </option><option value="H28" >平成２８年度（2016年）　　　
-                </option><option value="H27" >平成２７年度（2015年）　　　
-                </option><option value="H26" >平成２６年度（2014年）　　　
-                </option><option value="H25" >平成２５年度（2013年）　　　
-                </option><option value="H24" >平成２４年度（2012年）　　　
-                </option><option value="H23" >平成２３年度（2011年）　　　
-                </option><option value="H22" >平成２２年度（2010年）　　　
-                </option><option value="H21" >平成２１年度（2009年）　　　
-            </option></select>
+                    <!--年度データ-->
+                <select name="nendo" class="select" id="year">
+                    <option value="R6" selected="">令和６年度（2024年）
+                    </option><option value="R5" >令和５年度（2023年）
+                    </option><option value="R4" >令和４年度（2022年）
+                    </option><option value="R3" >令和３年度（2021年）
+                    </option><option value="R2" >令和２年度（2020年）
+                    </option><option value="H31" >平成３１年度（2019年）
+                    </option><option value="H30" >平成３０年度（2018年）
+                    </option><option value="H29" >平成２９年度（2017年）
+                    </option><option value="H28" >平成２８年度（2016年）
+                    </option><option value="H27" >平成２７年度（2015年）
+                    </option><option value="H26" >平成２６年度（2014年）
+                    </option><option value="H25" >平成２５年度（2013年）
+                    </option><option value="H24" >平成２４年度（2012年）
+                    </option><option value="H23" >平成２３年度（2011年）
+                    </option><option value="H22" >平成２２年度（2010年）
+                    </option><option value="H21" >平成２１年度（2009年）
+                    </option>
+                </select>
 
             
 
-            <h2>
-                各教科の得点を入力
-            </h2>
-            点数によっては、偏差値がマイナスになることがあります。<br>これは偏差値の仕様であり不具合ではありません。
+                <h2>
+                    各教科の得点を入力
+                </h2>
+                点数によって偏差値がマイナスになる現象は偏差値の仕様です。
+                <br><div class="サブ説明文">５教科すべての点数が入力されないと、５教科参考偏差値が正常に出ません。</div>
                 
-            <form id="score-form">
-                <div class="input-group">
-                    <label for="kokugo">国語</label>
-                    <input type="number" id="kokugo" name="kokugo" min="0" max="50">
-                </div>
-                <div class="input-group">
-                    <label for="sugaku">数学</label>
-                    <input type="number" id="sugaku" name="sugaku" min="0" max="50">
-                </div>
-                <div class="input-group">
-                    <label for="eigo">英語</label>
-                    <input type="number" id="eigo" name="eigo" min="0" max="50">
-                </div>
-                <div class="input-group">
-                    <label for="shakai">社会</label>
-                    <input type="number" id="shakai" name="shakai" min="0" max="50">
-                </div>
-                <div class="input-group">
-                    <label for="rika">理科</label>
-                    <input type="number" id="rika" name="rika" min="0" max="50">
-                </div>
+                <form id="score-form">
+                    <div class="score-flame">
+                        <div class="input-group">
+                            <label for="kokugo">国語</label>
+                            <input type="number" id="kokugo" name="kokugo" min="0" max="50">
+                        </div>
+                        <div class="input-group">
+                            <label for="sugaku">数学</label>
+                            <input type="number" id="sugaku" name="sugaku" min="0" max="50">
+                        </div>
+                        <div class="input-group">
+                            <label for="eigo">英語</label>
+                            <input type="number" id="eigo" name="eigo" min="0" max="50">
+                        </div>
+                        <div class="input-group">
+                            <label for="shakai">社会</label>
+                            <input type="number" id="shakai" name="shakai" min="0" max="50">
+                        </div>
+                        <div class="input-group">
+                            <label for="rika">理科</label>
+                            <input type="number" id="rika" name="rika" min="0" max="50">
+                        </div>
+                    </div>
+                        <button type="button" onclick="calculate()">計算する！</button>
+                </form>
+                
+            </section>
+            <script src="index script.js"></script>
+            <section class="results" id="results">
+            </section>
 
-                <button type="button" onclick="calculate()">計算する！</button>
-            </form>
-        </section>
-        <section class="results" id="results">
-        </section>
+        </div>
 
-    </div>
-    <!--Javascript calc unit-->
-    <script>
-    // 偏差値の初期化 (デフォルトで令和6年のデータを使用)
-    const deviationValues = {
-        kokugo: { mean: 33.81, sd: 7.26 },
-        sugaku: { mean: 24.16, sd: 8.88 },
-        eigo: { mean: 30.26, sd: 10.96 },
-        shakai: { mean: 27.19, sd: 9.91 },
-        rika: { mean: 25.64, sd: 10.88 },
-    };
-
-        const yearData = {
-    R6: {
-        kokugo_avg: 33.81, kokugo_sd: 7.26,
-        sugaku_avg: 24.16, sugaku_sd: 8.88,
-        eigo_avg: 30.26, eigo_sd: 10.96,
-        shakai_avg: 27.19, shakai_sd: 9.91,
-        rika_avg: 25.64, rika_sd: 10.88
-    },
-    R5: {
-        kokugo_avg: 33.55, kokugo_sd: 7.63,
-        sugaku_avg: 26.15, sugaku_sd: 8.89,
-        eigo_avg: 27.25, eigo_sd: 11.33,
-        shakai_avg: 30.33, shakai_sd: 9.30,
-        rika_avg: 25.64, rika_sd: 9.73
-    },
-    R4: {
-        kokugo_avg: 34.90, kokugo_sd: 7.26,
-        sugaku_avg: 24.64, sugaku_sd: 9.44,
-        eigo_avg: 31.92, eigo_sd: 11.16,
-        shakai_avg: 29.41, shakai_sd: 9.79,
-        rika_avg: 26.98, rika_sd: 9.90
-    },
-    R3: {
-        kokugo_avg: 31.81, kokugo_sd: 7.19,
-        sugaku_avg: 22.39, sugaku_sd: 8.54,
-        eigo_avg: 26.85, eigo_sd: 9.56,
-        shakai_avg: 30.47, shakai_sd: 9.44,
-        rika_avg: 27.53, rika_sd: 9.99
-    },
-    R2: {
-        kokugo_avg: 33.66, kokugo_sd: 7.34,
-        sugaku_avg: 25.39, sugaku_sd: 9.07,
-        eigo_avg: 27.47, eigo_sd: 10.68,
-        shakai_avg: 30.67, shakai_sd: 8.92,
-        rika_avg: 28.41, rika_sd: 9.07
-    },
-    H31: {
-        kokugo_avg: 34.4, kokugo_sd: 6.11,
-        sugaku_avg: 26.71, sugaku_sd: 10.47,
-        eigo_avg: 26.59, eigo_sd: 9.96,
-        shakai_avg: 27.76, shakai_sd: 9.28,
-        rika_avg: 26.66, rika_sd: 9.35
-    },
-    H30: {
-        kokugo_avg: 30.7, kokugo_sd: 7.83,
-        sugaku_avg: 22.71, sugaku_sd: 9.04,
-        eigo_avg: 26.39, eigo_sd: 11.23,
-        shakai_avg: 24.20, shakai_sd: 7.96,
-        rika_avg: 22.52, rika_sd: 8.53
-    },
-    H29: {
-        kokugo_avg: 30.46, kokugo_sd: 6.76,
-        sugaku_avg: 23.44, sugaku_sd: 8.21,
-        eigo_avg: 25.88, eigo_sd: 9.67,
-        shakai_avg: 25.13, shakai_sd: 8.05,
-        rika_avg: 17.35, rika_sd: 7.73
-    },
-    H28: {
-        kokugo_avg: 29.65, kokugo_sd: 7.34,
-        sugaku_avg: 22.84, sugaku_sd: 8.07,
-        eigo_avg: 27.98, eigo_sd: 10.84,
-        shakai_avg: 31.79, shakai_sd: 9.43,
-        rika_avg: 19.79, rika_sd: 8.52
-    },
-    H27: {
-        kokugo_avg: 32.94, kokugo_sd: 6.68,
-        sugaku_avg: 23.57, sugaku_sd: 9.24,
-        eigo_avg: 29.68, eigo_sd: 10.82,
-        shakai_avg: 30.90, shakai_sd: 9.07,
-        rika_avg: 28.68, rika_sd: 10.22
-    },
-    H26: {
-        kokugo_avg: 29.53, kokugo_sd: 6.60,
-        sugaku_avg: 26.38, sugaku_sd: 10.53,
-        eigo_avg: 26.48, eigo_sd: 10.56,
-        shakai_avg: 32.27, shakai_sd: 9.38,
-        rika_avg: 27.59, rika_sd: 8.79
-    },
-    H25: {
-        kokugo_avg: 30.83, kokugo_sd: 7.09,
-        sugaku_avg: 21.55, sugaku_sd: 9.13,
-        eigo_avg: 28.03, eigo_sd: 10.62,
-        shakai_avg: 32.58, shakai_sd: 9.14,
-        rika_avg: 28.69, rika_sd: 9.34
-    },
-    H24: {
-        kokugo_avg: 31.4, kokugo_sd: 7.09,
-        sugaku_avg: 25.0, sugaku_sd: 9.13,
-        eigo_avg: 26.3, eigo_sd: 10.62,
-        shakai_avg: 28.1, shakai_sd: 9.14,
-        rika_avg: 24.1, rika_sd: 9.34
-    },
-    H23: {
-        kokugo_avg: 33.7, kokugo_sd: 7.09,
-        sugaku_avg: 21.4, sugaku_sd: 9.13,
-        eigo_avg: 25.2, eigo_sd: 10.62,
-        shakai_avg: 26.4, shakai_sd: 9.14,
-        rika_avg: 24.8, rika_sd: 9.34
-    },
-    H22: {
-        kokugo_avg: 32.1, kokugo_sd: 7.09,
-        sugaku_avg: 22.1, sugaku_sd: 9.13,
-        eigo_avg: 25.9, eigo_sd: 10.62,
-        shakai_avg: 27.3, shakai_sd: 9.14,
-        rika_avg: 26.6, rika_sd: 9.34
-    },
-    H21: {
-        kokugo_avg: 30.1, kokugo_sd: 7.09,
-        sugaku_avg: 26.6, sugaku_sd: 9.13,
-        eigo_avg: 23.8, eigo_sd: 10.62,
-        shakai_avg: 26.1, shakai_sd: 9.14,
-        rika_avg: 30.6, rika_sd: 9.34
-    },
-};
-     // 年度が変更されたときに対応するデータを取得する関数
-     function updateDeviationValues(year) {
-        return yearData[year];
-    }
-
-    // 年度選択時に平均点・標準偏差を更新
-    document.querySelector('select[name="nendo"]').addEventListener('change', function() {
-        const selectedYear = this.value;
-        const updatedDeviationValues = updateDeviationValues(selectedYear);
-
-        if (updatedDeviationValues) {
-            deviationValues.kokugo.mean = updatedDeviationValues.kokugo_avg;
-            deviationValues.kokugo.sd = updatedDeviationValues.kokugo_sd;
-            deviationValues.sugaku.mean = updatedDeviationValues.sugaku_avg;
-            deviationValues.sugaku.sd = updatedDeviationValues.sugaku_sd;
-            deviationValues.eigo.mean = updatedDeviationValues.eigo_avg;
-            deviationValues.eigo.sd = updatedDeviationValues.eigo_sd;
-            deviationValues.shakai.mean = updatedDeviationValues.shakai_avg;
-            deviationValues.shakai.sd = updatedDeviationValues.shakai_sd;
-            deviationValues.rika.mean = updatedDeviationValues.rika_avg;
-            deviationValues.rika.sd = updatedDeviationValues.rika_sd;
-        }
-    });
-
-    // 偏差値計算関数
-    function calculate() {
-        const kokugo = parseFloat(document.getElementById('kokugo').value) || 0;
-        const sugaku = parseFloat(document.getElementById('sugaku').value) || 0;
-        const eigo = parseFloat(document.getElementById('eigo').value) || 0;
-        const shakai = parseFloat(document.getElementById('shakai').value) || 0;
-        const rika = parseFloat(document.getElementById('rika').value) || 0;
-
-        function calculateDeviation(score, mean, sd) {
-            if (sd === 0) {
-                return 50; // 標準偏差が0の場合は偏差値50を返す
-            }
-            return ((score - mean) / sd) * 10 + 50;
-        }
-
-        function roundToOneDecimal(value) {
-            return Math.floor(value * 100) / 100;
-        }
-
-        // 各教科の偏差値計算
-        const kokugoDeviation = roundToOneDecimal(calculateDeviation(kokugo, deviationValues.kokugo.mean, deviationValues.kokugo.sd));
-        const sugakuDeviation = roundToOneDecimal(calculateDeviation(sugaku, deviationValues.sugaku.mean, deviationValues.sugaku.sd));
-        const eigoDeviation = roundToOneDecimal(calculateDeviation(eigo, deviationValues.eigo.mean, deviationValues.eigo.sd));
-        const shakaiDeviation = roundToOneDecimal(calculateDeviation(shakai, deviationValues.shakai.mean, deviationValues.shakai.sd));
-        const rikaDeviation = roundToOneDecimal(calculateDeviation(rika, deviationValues.rika.mean, deviationValues.rika.sd));
-
-        // 平均偏差値を計算
-        const averageDeviation = roundToOneDecimal((kokugoDeviation + sugakuDeviation + eigoDeviation + shakaiDeviation + rikaDeviation) / 5);
-
-        // 結果を表示
-        const resultsDiv = document.getElementById('results');
-        resultsDiv.innerHTML = `
-            <p class="deviation">国語 <span class="deviation-value">${kokugoDeviation.toFixed(1)}</span></p>
-            <p class="deviation">数学 <span class="deviation-value">${sugakuDeviation.toFixed(1)}</span></p>
-            <p class="deviation">英語 <span class="deviation-value">${eigoDeviation.toFixed(1)}</span></p>
-            <p class="deviation">社会 <span class="deviation-value">${shakaiDeviation.toFixed(1)}</span></p>
-            <p class="deviation">理科 <span class="deviation-value">${rikaDeviation.toFixed(1)}</span></p>
-            <h3>5教科参考偏差値（平均） <span class="deviation-value">${averageDeviation.toFixed(1)}</span></h3>
-        `;
-    }
-    </script>
-
-    <!--後半部-->
-            <hr noshade="">
+        <!--後半部-->
             <div class="keikoku">
                 <h3>5教科参考偏差値について</h3>
-                実際とは異なる偏差値です。<br>これは、当ツールが各教科の偏差値を平均し、小数第2位を四捨五入して表示しているためです。（全教科合計の標準偏差は未公表）
+                実際とは異なる偏差値です。<br>これは当ツールが各教科の偏差値を平均し、小数第2位を四捨五入して表示しているためです。（全教科合計の標準偏差は未公表）
             </div>
 
-        <div class="説明文">
-            <h2>
-                フィードバック
-            </h2>
-            フィードバックは <a href="https://forms.gle/QRxN3UL7raKsQY3n8">連絡用フォーム</a> に送信してください。<br>（送信時の注意事項も添付されています。）
+            <div class="説明文">
+                <h2>
+                    フィードバック
+                </h2>
+                フィードバックは <a href="https://forms.gle/QRxN3UL7raKsQY3n8">連絡用フォーム<span class="material-symbols-outlined">open_in_new</span></a> に送信してください。<br>（送信時の注意事項も添付されています。）
 
-            <h2>設計・デザイン</h2>
-            デジタル庁デザインシステムウェブサイト <a href="https://design.digital.go.jp/">https://design.digital.go.jp/</a> のコンテンツを加工して作成
+                <h2>設計・デザイン</h2>
+                デジタル庁デザインシステムウェブサイト <a href="https://design.digital.go.jp/">https://design.digital.go.jp/<span class="material-symbols-outlined">open_in_new</span></a> のコンテンツを加工して作成
             
-            <h2>過去の平均点と標準偏差</h2>
-            このサイトで使用した過去の平均点と標準偏差を公開します。
-            <br>●予告なく終了や中止する場合があります。
-            <br>●データ利用・閲覧は自己責任となります。ご注意ください。
-            <br>●現在、試験的にHTML（ページ形式）で公開しています。
-            <br>
-            <br>PDF｜令和６年度版<br><a href="https://bukki-kotiyahakurei.github.io/shizuoka-nyushi/R06-shizuokanyushi-date.pdf" download="入試 平均点・標準偏差の推移 令和６年度版.pdf" target=" blank" rel="noopener">入試 平均点・標準偏差の推移 令和６年度版（PDF:103KB）</a>
-            <br>
-            <br>ページ版（試験公開）｜令和６年度版<br><a href="https://bukki-kotiyahakurei.github.io/shizuoka-nyushi/data-index.html" target="_blank" rel="noopener">過去の推移（HTML）</a><br>
-                ※新しいタブで開きます<br><br>
+                <h2>過去の平均点と標準偏差</h2>
+                このサイトで使用した過去の平均点と標準偏差を公開します。
+                <br>●予告なく終了や中止する場合があります。
+                <br>●データ利用・閲覧は自己責任となります。ご注意ください。
+                <br>●現在、試験的にHTML（ページ形式）で公開しています。
+                <br>
+                <br><span class="material-symbols-outlined">picture_as_pdf</span> PDF┃令和６年度版
+                <br><a href="https://bukki-kotiyahakurei.github.io/shizuoka-nyushi/R06-shizuokanyushi-date.pdf" download="入試 平均点・標準偏差の推移 令和６年度版.pdf" target=" blank" rel="noopener">入試 平均点・標準偏差の推移 令和６年度版（PDF:103KB）<span class="material-symbols-outlined">open_in_new</span></a>
+                <br>
+                <br><span class="material-symbols-outlined">description</span> ページ版┃令和６年度版
+                <br><a href="https://bukki-kotiyahakurei.github.io/shizuoka-nyushi/data-index.html" target="_blank" rel="noopener">過去の推移（HTML）<span class="material-symbols-outlined">
+                    open_in_new
+                    </span></a><br>
+                    ※新しいタブで開きます<br><br>
             </div>
-
+        <!--タイマー-->
+        <div id="counter_wrap">
+            <div id="counter"> 
+            </div>
+            <div>
+                <script>
+                    let target  = new Date(2025, 2, 5, 9, 0, 0);
+                    const countdown = ()=>{const targetObj = document.getElementById("counter");
+                    const now = new Date();const differ = target.getTime() - now.getTime();
+                    if(differ < 0)
+                    {targetObj.innerHTML = "入試開始！頑張れ受験生！";return false;};
+                    const myDay = Math.floor(differ / 1000 / 60 / 60 / 24);
+                    const myHour = Math.floor(differ / 1000 / 60 / 60 % 24);
+                    const myMin = Math.floor(differ / 1000 / 60 % 60);
+                    const mySec = Math.floor(differ / 1000 % 60);
+                    const myMsec= Math.floor(differ);
+                    targetObj.innerHTML = "公立入試まで…" + String(myDay).padStart(2, '0') + '日 ' + String(myHour).padStart(2, '0') + '時間 ' + String(myMin).padStart(2, '0') + '分 ' + String(mySec).padStart(2, '0') +'秒';if(differ < 0){clearInterval(countdown);};};
+                    setInterval(countdown, 1);
+                </script>
+            </div>
+        </div>
+        <!--タイマーend-->
+            <div class="keikoku">
+                <daimei>
+                    県教育委員会等とは無関係の個人開発ツールです。
+                    
+                </daimei>
+            </div>
+    </div>
 
         <!--footer-->
         <footer>
-            静岡県公立高校入試-偏差値計算ツール
-            <br>生じた障害について当サイトは一切の責任を負いません
+            偏差値計算ツール・高校入試【静岡県】
+            <br>生じた障害について当サイトは一切の責任を負いません。
             <p xmlns:cc="http://creativecommons.org/ns#">This work is marked with <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="./index（2024-10-18）_files/cc.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="./index（2024-10-18）_files/zero.svg" alt=""></a></p>
-                    </footer>
-
-
-
-<script src="./index（2024-10-18）_files/init"></script><deepl-input-controller><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller><script src="./index（2024-10-18）_files/script"></script></body></html>
+        </footer>
+        <script src="index script.js"></script>
+</body>
+<script src="index script.js"></script>
+</html>
