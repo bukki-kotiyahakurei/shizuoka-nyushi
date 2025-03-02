@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans Japanese";
+    font-size: 22px;
+    font-weight: Normal;
+    line-height: 150%;
+    letter-spacing: 2%;
+  }
+  
+  header {
+    background-color: #00118F;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-bottom: 30px;
+    color: #E8F1Fe;
+  }
+
+  /*header指定*/
+  .title_button {
+    font-family: "Noto Sans Japanese";
+    font-size: 28px;
+    font-weight: Medium;
+    appearance: none;
+    border: 0;
+    color: #E8F1Fe;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: #e8e8e8 solid 2px;
+    background-color: #00118F;
+  }
+
+  .title_button:focus {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+  }
+
+  .title_button:hover {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+  }
+
+  .title_menu {
+    margin-top: 10px;
+  }
+
+  /*fotter指定*/
+  footer {
+    background-color: #E6E6E6;
+    margin-bottom: 10px;
+    border-top: #999999 3px solid;
+    font-size: 16px;
+  }
+
+  .footer_data {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.footer_mozi {
+    text-align: center;
+}
+
+.footer_links {
+    display: flex; 
+    margin-left: auto;
+}
+
+.footer_url1, .footer_url2, .footer_url3{
+    text-align: right;
+}
+
+  /*文字指定*/
+  .title_main {
+    font-family: "Noto Sans Japanese";
+    font-size: 36px;
+    font-weight: Bold;
+  }
+
+  h1 {
+    font-family: "Noto Sans Japanese";
+    font-size: 28px;
+    font-weight: Bold;
+    line-height: 150%;
+    letter-spacing: 1%;
+  }
+
+  h2 {
+    font-family: "Noto Sans Japanese";
+    font-size: 24px;
+    font-weight: Bold;
+    line-height: 150%;
+  }
+
+  h3 {
+    font-family: "Noto Sans Japanese";
+    font-size: 22px;
+    font-weight: Normal;
+    line-height: 150%;
+    letter-spacing: 2%;    
+    text-align: right;
+  }
+
+  p {
+    font-family: "Noto Sans Japanese";
+    font-size: 22px;
+    font-weight: Normal;
+    line-height: 150%;
+    letter-spacing: 2%;
+  }
+  /*全体フォント*/
+  .html {
+    font-family: "Noto Sans Japanese";
+  }
+
+  /*aタグ*/
+  a {
+    color: #0031D8;
+    border: #11111100 solid 4px;
+  }
+
+  a:hover {
+    background-color: #FFC700;
+    border: #000000 4px solid;
+    border-radius: 8px;
+  }
+
+  a:visited {
+    color: #8B008B;
+  }
+
+/*canpas*/
+.canpas{
+    margin: 20px;
+}
+
+/*画像調整*/
+.nyushi_img {
+max-width: 500px;
+}
+
+/*注意*/
+.warm {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid #B78F00 3.5px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
