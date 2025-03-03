@@ -8,18 +8,18 @@ body {
     letter-spacing: 2%;
   }
   
+  /*header指定*/
   header {
     background-color: #00118F;
     padding: 20px;
     text-align: center;
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    margin-bottom: 30px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    margin-bottom: 35px;
     color: #E8F1Fe;
   }
 
-  /*header指定*/
   .title_button {
     font-family: "Noto Sans Japanese";
     font-size: 28px;
@@ -68,6 +68,14 @@ body {
 .footer_links {
     display: flex; 
     margin-left: auto;
+    /*レスポンシブ*/
+    @media screen and ( min-width: 700px) {
+      margin-right: 30%; 
+    }
+    
+    @media screen and ( max-width: 700px) {
+      margin-right: 1px;    
+    }
 }
 
 .footer_url1, .footer_url2, .footer_url3{
@@ -134,8 +142,19 @@ body {
   }
 
 /*canpas*/
-.canpas{
-    margin: 20px;
+/*余白はレスポンシブ対応*/
+ .canpas{
+  @media screen and ( min-width: 900px) {
+    margin-left: 15%;
+    margin-right: 25%;
+    margin-bottom: 70px;    
+  }
+  
+  @media screen and ( max-width: 900px) {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 70px;    
+  }
 }
 
 /*画像調整*/
