@@ -1,7 +1,8 @@
+/*Bodyタグ*/
 body {
     margin: 0;
     padding: 0;
-    font-family: "Noto Sans Japanese";
+    font-family: "Noto Sans JP";
     font-size: 22px;
     font-weight: Normal;
     line-height: 150%;
@@ -21,8 +22,7 @@ body {
   }
 
   .title_button {
-    font-family: "Noto Sans Japanese";
-    font-size: 28px;
+    font-family: "Noto Sans JP";
     font-weight: Medium;
     appearance: none;
     border: 0;
@@ -31,6 +31,12 @@ body {
     padding-right: 10px;
     border-left: #e8e8e8 solid 2px;
     background-color: #00118F;
+    @media screen and ( min-width: 700px ) {
+      font-size: 32px;
+    }
+    @media screen and ( max-width: 700px ) {
+      font-size: 26px;
+    }
   }
 
   .title_button:focus {
@@ -84,45 +90,72 @@ body {
 
   /*文字指定*/
   .title_main {
-    font-family: "Noto Sans Japanese";
-    font-size: 36px;
+    font-family: "Noto Sans JP";
     font-weight: Bold;
+    line-height: 140%;
+    @media screen and ( min-width: 700px ) {
+      font-size: 45px;
+    }
+    @media screen and ( max-width: 700px ) {
+      font-size: 36px;
+    }
   }
 
   h1 {
-    font-family: "Noto Sans Japanese";
-    font-size: 28px;
+    font-family: "Noto Sans JP";
     font-weight: Bold;
     line-height: 150%;
     letter-spacing: 1%;
+    @media screen and ( min-width: 700px ) {
+      font-size: 32px;
+    }
+    @media screen and ( max-width: 700px ) {
+      font-size: 28px;
+    }
   }
 
   h2 {
-    font-family: "Noto Sans Japanese";
-    font-size: 24px;
+    font-family: "Noto Sans JP";
     font-weight: Bold;
     line-height: 150%;
+    letter-spacing: 2%;
+    @media screen and ( min-width: 700px ) {
+      font-size: 24px;
+    }
+    @media screen and ( max-width: 700px ) {
+      font-size: 22px;
+    }
   }
 
   h3 {
-    font-family: "Noto Sans Japanese";
-    font-size: 22px;
+    font-family: "Noto Sans JP";
     font-weight: Normal;
     line-height: 150%;
     letter-spacing: 2%;    
     text-align: right;
+    @media screen and ( min-width: 700px ) {
+      font-size: 22px;
+    }
+    @media screen and ( max-width: 700px ) {
+      font-size: 20px;
+    }
   }
 
   p {
-    font-family: "Noto Sans Japanese";
-    font-size: 22px;
+    font-family: "Noto Sans JP";
     font-weight: Normal;
     line-height: 150%;
     letter-spacing: 2%;
+    @media screen and ( min-width: 700px ) {
+      font-size: 22px;
+    }
+    @media screen and ( max-width: 700px ) {
+      font-size: 20px;
+    }
   }
   /*全体フォント*/
   .html {
-    font-family: "Noto Sans Japanese";
+    font-family: "Noto Sans JP";
   }
 
   /*aタグ*/
