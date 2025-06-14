@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイマー付きブラウザ録音ページ</title>
+</head>
+<body>
+    <h1>タイマー付きブラウザ内蔵レコーダー</h1>
+    <p>マイクへのアクセスを許可してください。</p>
+
+    <div>
+        <label for="duration">録音時間（秒）:</label>
+        <input type="number" id="duration" value="5" min="1">
+    </div>
+    <br>
+
+    <button id="recordButton">録音開始</button>
+    <button id="stopButton" disabled>録音停止</button>
+
+    <p>残り時間: <span id="timerDisplay">---</span></p>
+
+
+    <h2>録音結果</h2>
+    <audio id="audioPlayer" controls></audio>
+    <a id="downloadLink" style="display:none;">録音ファイルをダウンロード</a>
+
+    <script src="recorder.js"></script>
+</body>
+
+</html>
