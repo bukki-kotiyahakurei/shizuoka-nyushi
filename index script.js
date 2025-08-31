@@ -35,15 +35,22 @@ if (userAgent.indexOf("msie") > -1 || userAgent.indexOf("trident/") > -1) {
 // 偏差値の初期化 (デフォルトで令和6年のデータを使用)
 // 追加方法➔deviationValuesには最新年度
 const deviationValues = {
-    kokugo: { mean: 33.81, sd: 7.26 },
-    sugaku: { mean: 24.16, sd: 8.88 },
-    eigo: { mean: 30.26, sd: 10.96 },
-    shakai: { mean: 27.19, sd: 9.91 },
-    rika: { mean: 25.64, sd: 10.88 },
+    kokugo: { mean: 35.05, sd: 7.34 },
+    sugaku: { mean: 24.36, sd: 7.45 },
+    eigo: { mean: 31.71, sd: 11.51 },
+    shakai: { mean: 27.94, sd: 9.22 },
+    rika: { mean: 27.60, sd: 9.58 },
 };
 
 // 追加方法➔R'x'と囲み、_avgは各教科のそれぞれの平均、_sdは標準偏差にしてください。
     const yearData = {
+R7: {
+    kokugo_avg: 35.05, kokugo_sd: 7.34,
+    sugaku_avg: 24.36, sugaku_sd: 7.45,
+    eigo_avg: 31.71, eigo_sd: 11.51,
+    shakai_avg: 27.94, shakai_sd: 9.22,
+    rika_avg: 27.60, rika_sd: 9.58
+},
 R6: {
     kokugo_avg: 33.81, kokugo_sd: 7.26,
     sugaku_avg: 24.16, sugaku_sd: 8.88,
@@ -228,4 +235,5 @@ function calculate() {
         <p class="deviation">理科 <span class="deviation-value">${rikaDeviation.toFixed(1)}</span></p>
         <h3>5教科参考偏差値（平均） <span class="deviation-value">${averageDeviation.toFixed(1)}</span></h3>
     `;
+
 }
