@@ -48,6 +48,11 @@
         <div class="偏差値参考">
             偏差値は参考程度にしてください。
         </div>
+        ▼重要なお知らせ▼<br>
+            <img src="info_01.PNG">
+            <!--更新停止埋め込み-->
+            <!--サ終は"info_02_fin"-->
+            <!--下部にもあるので更新すること-->
         <a href="nyushi-sokuho.html"><img src="R7-sokuho.png"></a>
 
         <hr noshade="">
@@ -154,28 +159,11 @@
                 <h2>設計・デザイン</h2>
                 デジタル庁デザインシステムウェブサイト <a href="https://design.digital.go.jp/">https://design.digital.go.jp/<span class="material-symbols-outlined">open_in_new</span></a> のコンテンツを加工して作成
             </div>
-        <!--タイマー-->
-        <div id="counter_wrap">
-            <div id="counter"> 
-            </div>
-            <div>
-                <script>
-                    let target  = new Date(2025, 2, 5, 9, 0, 0);
-                    const countdown = ()=>{const targetObj = document.getElementById("counter");
-                    const now = new Date();const differ = target.getTime() - now.getTime();
-                    if(differ < 0)
-                    {targetObj.innerHTML = "頑張れ受験生！";return false;};
-                    const myDay = Math.floor(differ / 1000 / 60 / 60 / 24);
-                    const myHour = Math.floor(differ / 1000 / 60 / 60 % 24);
-                    const myMin = Math.floor(differ / 1000 / 60 % 60);
-                    const mySec = Math.floor(differ / 1000 % 60);
-                    const myMsec= Math.floor(differ);
-                    targetObj.innerHTML = "公立入試まで…" + String(myDay).padStart(2, '0') + '日 ' + String(myHour).padStart(2, '0') + '時間 ' + String(myMin).padStart(2, '0') + '分 ' + String(mySec).padStart(2, '0') +'秒';if(differ < 0){clearInterval(countdown);};};
-                    setInterval(countdown, 1);
-                </script>
-            </div>
-        </div>
-        <!--タイマーend-->
+            <br>▼重要なお知らせ▼<br>
+            <img src="info_01.PNG">
+            <!--更新停止埋め込み-->
+            <!--サ終は"info_02_fin"-->
+
             <div class="keikoku">
                 <daimei>
                     県教育委員会等とは無関係の個人開発ツールです。
